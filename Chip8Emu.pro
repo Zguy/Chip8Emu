@@ -29,7 +29,6 @@ HEADERS  += MainWindow.h \
     Memory.h \
     Types.h \
     Log.h \
-    FlagHelpers.h \
     Display.h \
     Random.h \
     Font.h \
