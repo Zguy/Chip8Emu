@@ -31,7 +31,7 @@ void DisplayWidget::paintEvent(QPaintEvent*)
 			byte_t pixel = pixels[y * Display::WIDTH + x];
 			if (pixel != 0)
 			{
-				painter.fillRect(x,y,1,1,Qt::white);
+				painter.fillRect(x-1,y-1,1,1,Qt::white);
 			}
 		}
 	}
