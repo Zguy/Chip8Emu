@@ -110,8 +110,8 @@ void CPU::parseOpcode()
 	case 0xE:
 		switch (opcode & 0x00FF)
 		{
-		case 0x9E: if (emu->isKeyPressed(V[regX(opcode)])) skipInstruction(); break;
-		case 0xA1: if (!emu->isKeyPressed(V[regX(opcode)])) skipInstruction(); break;
+		case 0x9E: if (emu->getInput().isPressed(V[regX(opcode)])) skipInstruction(); break;
+		case 0xA1: if (!emu->getInput().isPressed(V[regX(opcode)])) skipInstruction(); break;
 		default: unknownOpcode(opcode); break;
 		}
 		break;
@@ -119,7 +119,7 @@ void CPU::parseOpcode()
 		switch (opcode & 0x00FF)
 		{
 		case 0x07: V[regX(opcode)] = delayTimer; break;
-		case 0x0A: if (emu->isAnyKeyPressed()) V[regX(opcode)] = emu->getFirstKeyPressed(); else repeatInstruction(); break;
+		case 0x0A: if (emu->getInput().isAnyPressed()) V[regX(opcode)] = emu->getInput().getFirstPressed(); else repeatInstruction(); break;
 		case 0x15: delayTimer = V[regX(opcode)]; break;
 		case 0x18: soundTimer = V[regX(opcode)]; break;
 		case 0x1E: I = addSetOverflow(I, V[regX(opcode)]); break;

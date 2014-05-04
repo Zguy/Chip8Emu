@@ -4,6 +4,7 @@
 #include "CPU.h"
 #include "Memory.h"
 #include "Display.h"
+#include "Input.h"
 
 #include <string>
 
@@ -18,10 +19,7 @@ public:
 	CPU &getCPU() { return cpu; }
 	Memory &getMemory() { return memory; }
 	Display &getDisplay() { return display; }
-
-	bool isKeyPressed(byte_t key) { (void)key; return false; }
-	bool isAnyKeyPressed() { return false; }
-	byte_t getFirstKeyPressed() { return 0; }
+	Input &getInput() { return input; }
 
 	void init();
 
@@ -34,6 +32,7 @@ private:
 	CPU cpu;
 	Memory memory;
 	Display display;
+	Input input;
 };
 }
 

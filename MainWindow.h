@@ -5,6 +5,7 @@
 #include "Emulator.h"
 
 #include <QtWidgets/QMainWindow>
+#include <QtGui/QKeyEvent>
 
 namespace Chip8GUI
 {
@@ -20,6 +21,10 @@ public slots:
 	void closeROM();
 
 	void about();
+
+protected:
+	void keyPressEvent(QKeyEvent *e) override;
+	void keyReleaseEvent(QKeyEvent *e) override;
 
 private:
 	Ui::MainWindow ui;

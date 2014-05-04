@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     Log.cpp \
     Display.cpp \
     Random.cpp \
-    DisplayWidget.cpp
+    DisplayWidget.cpp \
+    Input.cpp
 
 HEADERS  += MainWindow.h \
     Emulator.h \
@@ -32,6 +33,7 @@ HEADERS  += MainWindow.h \
     Display.h \
     Random.h \
     Font.h \
-    DisplayWidget.h
+    DisplayWidget.h \
+    Input.h
 
 FORMS    += MainWindow.ui
