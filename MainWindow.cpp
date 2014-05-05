@@ -69,6 +69,7 @@ void MainWindow::openROM()
 void MainWindow::closeROM()
 {
 	emu.close();
+	ui.display->update();
 
 	executionTimer.stop();
 }
