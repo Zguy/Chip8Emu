@@ -4,8 +4,10 @@
 #include "ui_MainWindow.h"
 #include "Emulator.h"
 
-#include <QtWidgets/QMainWindow>
+#include <QtCore/QElapsedTimer>
+#include <QtCore/QTimer>
 #include <QtGui/QKeyEvent>
+#include <QtWidgets/QMainWindow>
 
 namespace Chip8GUI
 {
@@ -22,6 +24,9 @@ public slots:
 
 	void about();
 
+private slots:
+	void execute();
+
 protected:
 	void keyPressEvent(QKeyEvent *e) override;
 	void keyReleaseEvent(QKeyEvent *e) override;
@@ -30,6 +35,8 @@ private:
 	Ui::MainWindow ui;
 
 	Chip8::Emulator emu;
+	QTimer executionTimer;
+	QElapsedTimer elapsedTimer;
 };
 }
 

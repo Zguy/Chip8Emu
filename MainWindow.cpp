@@ -2,7 +2,6 @@
 
 #include <QtWidgets/QFileDialog>
 #include <QtWidgets/QMessageBox>
-#include <QtCore/QElapsedTimer>
 
 #include <assert.h>
 
@@ -46,6 +45,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
 	connect(ui.actionAbout, &QAction::triggered, this, &MainWindow::about);
 
+	executionTimer.setInterval(0);
+	connect(&executionTimer, &QTimer::timeout, this, &MainWindow::execute);
+
 	ui.display->setPixels(emu.getDisplay().getPixels());
 }
 MainWindow::~MainWindow()
@@ -58,29 +60,30 @@ void MainWindow::openROM()
 	if (filename.isNull())
 		return;
 
-	emu.open(filename.toStdString());
-
-	QElapsedTimer timer;
-	timer.start();
-
-	while (true)
+	if (emu.open(filename.toStdString()))
 	{
-		float elapsedSeconds = static_cast<float>(timer.restart()) / 1000.f;
-		emu.step(elapsedSeconds);
-
-		ui.display->update();
-
-		QApplication::processEvents();
+		elapsedTimer.start();
+		executionTimer.start();
 	}
 }
 void MainWindow::closeROM()
 {
 	emu.close();
+
+	executionTimer.stop();
 }
 
 void MainWindow::about()
 {
 	QMessageBox::about(this, tr("About Chip8Emu"), tr("Chip-8 Emulator"));
+}
+
+void MainWindow::execute()
+{
+	float elapsedSeconds = static_cast<float>(elapsedTimer.restart()) / 1000.f;
+	emu.step(elapsedSeconds);
+
+	ui.display->update();
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *e)
