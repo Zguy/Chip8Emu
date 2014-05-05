@@ -37,6 +37,12 @@ bool Emulator::open(const std::string &filename)
 	std::size_t size = file.tellg();
 	file.seekg(0);
 
+	if (size > (Memory::SIZE - Memory::ROM_START))
+	{
+		Log::error() << "ROM file is too large (maximum size " << std::dec << (Memory::SIZE - Memory::ROM_START) << " bytes)" << std::endl;
+		return false;
+	}
+
 	byte_t *data = memory.get(Memory::ROM_START);
 	file.read(reinterpret_cast<char*>(data), size);
 
