@@ -23,7 +23,7 @@ void Emulator::init()
 	}
 }
 
-void Emulator::open(const std::string &filename)
+bool Emulator::open(const std::string &filename)
 {
 	close();
 
@@ -31,7 +31,7 @@ void Emulator::open(const std::string &filename)
 	if (!file.is_open())
 	{
 		Log::error() << "Could not open \"" << filename << "\"" << std::endl;
-		return;
+		return false;
 	}
 
 	std::size_t size = file.tellg();
@@ -39,6 +39,8 @@ void Emulator::open(const std::string &filename)
 
 	byte_t *data = memory.get(Memory::ROM_START);
 	file.read(reinterpret_cast<char*>(data), size);
+
+	return true;
 }
 void Emulator::close()
 {

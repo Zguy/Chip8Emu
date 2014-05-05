@@ -23,7 +23,7 @@ public:
 
 	void init();
 
-	void open(const std::string &filename);
+	bool open(const std::string &filename);
 	void close();
 
 	void step(float seconds);
