@@ -56,7 +56,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::openROM()
 {
-	QString filename = QFileDialog::getOpenFileName(this, tr("Open..."));
+	QString filename = QFileDialog::getOpenFileName(this, tr("Open..."), QString(), tr("Chip-8 ROM (*.ch8);;All files (*.*)"));
 	if (filename.isNull())
 		return;
 
