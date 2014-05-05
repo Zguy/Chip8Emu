@@ -5,8 +5,11 @@
 
 namespace Chip8
 {
-static const int FONT_BYTES = 5;
-static const byte_t FONT[FONT_BYTES*16] = {
+namespace Font
+{
+static const int COUNT = 16;
+static const int HEIGHT = 5;
+static const byte_t DATA[COUNT*HEIGHT] = {
 	0xF0, 0x90, 0x90, 0x90, 0xF0,	// 0
 	0x20, 0x60, 0x20, 0x20, 0x70,	// 1
 	0xF0, 0x10, 0xF0, 0x80, 0xF0,	// 2
@@ -24,6 +27,7 @@ static const byte_t FONT[FONT_BYTES*16] = {
 	0xF0, 0x80, 0xF0, 0x80, 0xF0,	// E
 	0xF0, 0x80, 0xF0, 0x80, 0x80	// F
 };
+}
 }
 
 #endif // FONT_H

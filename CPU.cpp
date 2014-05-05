@@ -122,7 +122,7 @@ void CPU::parseOpcode()
 		case 0x15: delayTimer = V[regX(opcode)]; break;
 		case 0x18: soundTimer = V[regX(opcode)]; break;
 		case 0x1E: I = addSetOverflow(I, V[regX(opcode)]); break;
-		case 0x29: I = Memory::FONT_START + (V[regX(opcode)] * FONT_BYTES); break;
+		case 0x29: I = Memory::FONT_START + (V[regX(opcode)] * Font::HEIGHT); break;
 		case 0x33: storeDecimal(I, V[regX(opcode)]); break;
 		case 0x55: storeRegisters(I, regX(opcode)); break;
 		case 0x65: fillRegisters(I, regX(opcode)); break;
