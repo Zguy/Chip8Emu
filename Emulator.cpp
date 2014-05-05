@@ -26,6 +26,7 @@ void Emulator::init()
 bool Emulator::open(const std::string &filename)
 {
 	close();
+	init();
 
 	std::ifstream file(filename, std::ios::binary | std::ios::ate);
 	if (!file.is_open())
