@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui widgets
+QT += core gui widgets
 
 CONFIG += c++11
 
@@ -13,26 +13,26 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-				MainWindow.cpp \
-    Emulator.cpp \
-    CPU.cpp \
-    Memory.cpp \
-    Log.cpp \
-    Display.cpp \
-    Random.cpp \
-    DisplayWidget.cpp \
-    Input.cpp
+	MainWindow.cpp \
+	Emulator.cpp \
+	CPU.cpp \
+	Memory.cpp \
+	Log.cpp \
+	Display.cpp \
+	Random.cpp \
+	DisplayWidget.cpp \
+	Input.cpp
 
-HEADERS  += MainWindow.h \
-    Emulator.h \
-    CPU.h \
-    Memory.h \
-    Types.h \
-    Log.h \
-    Display.h \
-    Random.h \
-    Font.h \
-    DisplayWidget.h \
-    Input.h
+HEADERS += MainWindow.h \
+	Emulator.h \
+	CPU.h \
+	Memory.h \
+	Types.h \
+	Log.h \
+	Display.h \
+	Random.h \
+	Font.h \
+	DisplayWidget.h \
+	Input.h
 
-FORMS    += MainWindow.ui
+FORMS += MainWindow.ui
