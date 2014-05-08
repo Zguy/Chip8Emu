@@ -2,11 +2,13 @@
 #define MAINWINDOW_H
 
 #include "ui_MainWindow.h"
+#include "SoundDevice.h"
 #include "Emulator.h"
 
 #include <QtCore/QElapsedTimer>
 #include <QtCore/QTimer>
 #include <QtGui/QKeyEvent>
+#include <QtMultimedia/QAudioOutput>
 #include <QtWidgets/QMainWindow>
 
 namespace Chip8GUI
@@ -33,6 +35,9 @@ protected:
 
 private:
 	Ui::MainWindow ui;
+
+	QAudioOutput *audioOutput;
+	SoundDevice soundDevice;
 
 	Chip8::Emulator emu;
 	QTimer executionTimer;

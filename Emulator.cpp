@@ -54,6 +54,7 @@ void Emulator::close()
 	memory.zeroAll();
 	cpu.reset();
 	display.clear();
+	sound.reset();
 }
 
 void Emulator::step(float seconds)

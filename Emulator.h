@@ -5,6 +5,7 @@
 #include "Memory.h"
 #include "Display.h"
 #include "Input.h"
+#include "Sound.h"
 
 #include <string>
 
@@ -20,6 +21,7 @@ public:
 	Memory &getMemory() { return memory; }
 	Display &getDisplay() { return display; }
 	Input &getInput() { return input; }
+	Sound &getSound() { return sound; }
 
 	void init();
 
@@ -33,6 +35,7 @@ private:
 	Memory memory;
 	Display display;
 	Input input;
+	Sound sound;
 };
 }
 

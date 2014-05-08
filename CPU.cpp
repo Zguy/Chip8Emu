@@ -57,6 +57,8 @@ void CPU::step(float seconds)
 {
 	parseOpcode();
 	tickTimers(seconds);
+
+	emu->getSound().setInput(soundTimer > 0);
 }
 
 void CPU::parseOpcode()

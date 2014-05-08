@@ -49,6 +49,21 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 	connect(&executionTimer, &QTimer::timeout, this, &MainWindow::execute);
 
 	ui.display->setPixels(emu.getDisplay().getPixels());
+
+	QAudioFormat format;
+	format.setSampleRate(48000);
+	format.setChannelCount(1);
+	format.setSampleSize(8);
+	format.setCodec("audio/pcm");
+	format.setByteOrder(QAudioFormat::LittleEndian);
+	format.setSampleType(QAudioFormat::SignedInt);
+
+	emu.getSound().setSampleRate(format.sampleRate());
+	soundDevice.setInput(&emu.getSound());
+	soundDevice.open(QIODevice::ReadOnly);
+
+	audioOutput = new QAudioOutput(format, this);
+	audioOutput->start(&soundDevice);
 }
 MainWindow::~MainWindow()
 {

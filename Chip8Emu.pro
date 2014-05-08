@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT += core gui widgets
+QT += core gui widgets multimedia
 
 CONFIG += c++11
 
@@ -21,7 +21,9 @@ SOURCES += main.cpp\
 	Display.cpp \
 	Random.cpp \
 	DisplayWidget.cpp \
-	Input.cpp
+	Input.cpp \
+	SoundDevice.cpp \
+	Sound.cpp
 
 HEADERS += MainWindow.h \
 	Emulator.h \
@@ -33,6 +35,8 @@ HEADERS += MainWindow.h \
 	Random.h \
 	Font.h \
 	DisplayWidget.h \
-	Input.h
+	Input.h \
+	SoundDevice.h \
+	Sound.h
 
 FORMS += MainWindow.ui
