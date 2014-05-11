@@ -235,7 +235,7 @@ byte_t CPU::subtractSetCarry(byte_t v1, byte_t v2)
 address_t CPU::addSetOverflow(address_t v1, address_t v2)
 {
 	int result = static_cast<int>(v1) + static_cast<int>(v2);
-	V[0xF] = (result > 0xFFFF ? 1 : 0);
+	V[0xF] = (result > 0xFFF ? 1 : 0);
 	return static_cast<address_t>(result);
 }
 
