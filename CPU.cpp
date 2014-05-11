@@ -47,7 +47,7 @@ void CPU::reset()
 	timeKeep = 0.f;
 
 	I = 0;
-	for (int i = 0; i < 16; ++i)
+	for (int i = 0x0; i <= 0xF; ++i)
 	{
 		V[i] = 0;
 	}
