@@ -11,11 +11,11 @@ namespace
 {
 using namespace Chip8;
 
-inline int regX(opcode_t opcode)
+inline int regX(const opcode_t &opcode)
 {
 	return ((opcode >> 8) & 0xF);
 }
-inline int regY(opcode_t opcode)
+inline int regY(const opcode_t &opcode)
 {
 	return ((opcode >> 4) & 0xF);
 }
