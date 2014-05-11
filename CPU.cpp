@@ -246,7 +246,7 @@ byte_t CPU::shiftRightSetCarry(byte_t v, int steps)
 }
 byte_t CPU::shiftLeftSetCarry(byte_t v, int steps)
 {
-	V[0xF] = (v & 0x80);
+	V[0xF] = ((v >> 7) & 0x1);
 	return (v << steps);
 }
 
