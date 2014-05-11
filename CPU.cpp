@@ -228,7 +228,7 @@ byte_t CPU::addSetCarry(byte_t v1, byte_t v2)
 }
 byte_t CPU::subtractSetCarry(byte_t v1, byte_t v2)
 {
-	V[0xF] = (v2 >= v1 ? 1 : 0);
+	V[0xF] = (v1 >= v2 ? 1 : 0);
 	return v1 - v2;
 }
 
