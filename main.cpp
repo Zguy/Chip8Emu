@@ -1,5 +1,4 @@
 #include "MainWindow.h"
-#include "Emulator.h"
 #include "Random.h"
 
 #include <QtWidgets/QApplication>
