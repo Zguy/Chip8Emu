@@ -17,7 +17,7 @@ Emulator::~Emulator()
 void Emulator::init()
 {
 	// Load font
-	for (int i = 0; i < (Font::COUNT*Font::HEIGHT); ++i)
+	for (int i = 0; i < (Font::COUNT*Font::SIZE); ++i)
 	{
 		memory.write(Memory::FONT_START + i, Font::DATA[i]);
 	}
