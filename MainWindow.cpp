@@ -96,10 +96,13 @@ void MainWindow::about()
 
 void MainWindow::execute()
 {
-	float elapsedSeconds = static_cast<float>(elapsedTimer.restart()) / 1000.f;
-	emu.step(elapsedSeconds);
+	if (elapsedTimer.hasExpired(0))
+	{
+		float elapsedSeconds = static_cast<float>(elapsedTimer.restart()) / 1000.f;
+		emu.step(elapsedSeconds);
 
-	ui.display->update();
+		ui.display->update();
+	}
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *e)
