@@ -171,8 +171,7 @@ address_t CPU::pop()
 	else
 	{
 		--sp;
-		address_t top = stack[sp];
-		return top;
+		return stack[sp];
 	}
 }
 
