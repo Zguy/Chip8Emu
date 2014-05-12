@@ -215,7 +215,7 @@ void CPU::repeatInstruction()
 }
 void CPU::callSubroutine(address_t address)
 {
-	push(pc + sizeof(opcode_t));
+	push(pc);
 	pc = address;
 }
 
